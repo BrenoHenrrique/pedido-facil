@@ -1,9 +1,6 @@
 package com.example.auth.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -17,6 +14,7 @@ import java.util.Collections;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
+@Table(schema = "public", name = "user")
 public class UserEntity implements UserDetails {
 
     @Id

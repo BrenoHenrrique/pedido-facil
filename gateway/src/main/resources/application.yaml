@@ -4,17 +4,6 @@ server:
 spring:
   application:
     name: gateway
-  cloud:
-    loadbalancer:
-      eager-load:
-        clients:
-          - notificacao-service
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
-      routes:
 
 eureka:
   client:

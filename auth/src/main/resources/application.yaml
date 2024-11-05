@@ -1,20 +1,26 @@
 spring:
-  application:
-    name: auth
   datasource:
-    driver-class-name: org.h2.Driver
-    username: sa
-    url: jdbc:h2:mem:auth
-    password: ''
-  h2:
-    console:
-      enabled: true
-      path: /h2
+    url: jdbc:postgresql://localhost:5432/auth
+    username: 'postgres'
+    password: '1'
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 10
+      minimum-idle: 5
+      idle-timeout: 30000
+      connection-timeout: 30000
+      validation-timeout: 5000
+      max-lifetime: 600000
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:db/changelog/db.changelog-master.yaml
 
 server:
   port: 0
