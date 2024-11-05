@@ -16,7 +16,6 @@ spring:
           lower-case-service-id: true
       routes:
 
-
 eureka:
   client:
     service-url:
@@ -24,16 +23,3 @@ eureka:
     fetch-registry: true
   instance:
     prefer-ip-address: true
-
-management:
-  endpoints:
-    web:
-      exposure:
-        include: '*'
-
-logging:
-  level:
-    org.springframework.cloud.gateway: DEBUG
-    reactor.netty: DEBUG
-    org.springframework.web.reactive.function.client: DEBUG
-    org.springframework.web: DEBUG
