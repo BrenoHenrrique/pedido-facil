@@ -10,5 +10,6 @@
 
     <modules>
         <module>registry</module>
+        <module>gateway</module>
     </modules>
 </project>
