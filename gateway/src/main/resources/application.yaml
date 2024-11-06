@@ -4,6 +4,28 @@ server:
 spring:
   application:
     name: gateway
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: '$2a$12$j0en22/sNGB0.tFzA33Ma.bzUuDMQmGqfzjQ9chxWoqR.k7fsjbzS'
+  cloud:
+    loadbalancer:
+      eager-load:
+        clients:
+          - auth
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+      routes:
+        - id: auth
+          uri: lb://auth
+          predicates:
+            - Path=/auth/**
+          filters:
+            - StripPrefix=1
 
 eureka:
   client:
